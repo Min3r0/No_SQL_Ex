@@ -1,5 +1,5 @@
 # No_SQL_Ex
-# Part 01_basic-queries.md
+# Part 01_basic-queries
 
 ## Exercice 3 : Lecture de Données
 
