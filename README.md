@@ -1,5 +1,6 @@
 # No_SQL_Ex
-# Part 1
+# Part 01_basic-queries.md
+
 ## Exercice 3 : Lecture de Données
 
 **Trouvez tous les Pokémon de type "Feu".**
