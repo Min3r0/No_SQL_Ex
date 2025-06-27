@@ -256,4 +256,113 @@ Voici la transformation de ton contenu en Markdown clair et structuré :
   */
   ```
 
+# Part 03_using-mongosh
+
+
+## Partie 1 : Exploration des Bases de Données et Collections
+
+### Lister les Bases de Données
+Utilisez la commande `show dbs` pour afficher toutes les bases de données existantes.
+```js
+show dbs
+```
+```
+PokemonDB      88.00 KiB
+TitanicDB     144.00 KiB
+sample_mflix  125.27 MiB
+admin         360.00 KiB
+local          11.05 GiB
+```
+
+### Sélectionner une Base de Données
+Utilisez la commande `use` suivie du nom d'une base de données existante ou d'une nouvelle pour la sélectionner.
+```js
+use PokemonDB
+```
+```
+switched to db PokemonDB
+```
+
+### Créer une Collection
+```js
+db.createCollection("testColllection")
+```
+```json
+{ ok: 1 }
+```
+
+### Afficher les Collections
+```js
+show collections
+```
+```
+Pokemons
+testColllection
+```
+
+---
+
+## Partie 2 : Manipulation des Données
+
+### Insertion de Données
+```js
+db.testColllection.insertOne({name: "test", value: 1})
+```
+```json
+{
+  acknowledged: true,
+  insertedId: ObjectId('685e4dd37cebd145e56f0cd5')
+}
+```
+
+### Lecture de Données
+```js
+db.testCollection.find()
+```
+
+### Mise à Jour de Données
+```js
+db.testCollection.updateOne({name: "test"}, {$inc: {value: 1}})
+```
+```json
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+```
+
+### Suppression de Données
+```js
+db.testCollection.deleteOne({name: "test"})
+```
+```json
+{
+  acknowledged: true,
+  deletedCount: 0
+}
+```
+
+---
+
+## Partie 3 : Nettoyage
+
+### Suppression de Collection
+```js
+db.testCollection.drop()
+```
+```
+true
+```
+
+### Suppression de Base de Données
+```js
+db.dropDatabase()
+```
+```json
+{ ok: 1, dropped: 'TestDB' }
+```
+
 
